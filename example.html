@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+    <script src="/src/cases.js"></script>
+    <script>
+      var app = angular.module('app', ['cases']);
+
+      app.controller('ctrl', [
+        '$scope',
+        function($scope){
+          $scope.someExpression = 1;
+          $scope.someValue = 0;
+
+          $scope.conditions = {
+            someCondition: false,
+            anotherCondition: true,
+            moreConditions: false,
+            evenMoreConditions: true
+          };
+          $scope.conditionNames = Object.keys($scope.conditions);
+        }
+      ]);
+    </script>
+  </head>
+
+  <body ng-controller="ctrl">
+    <code>someExpression</code>: <input type="number" ng-model="someExpression">
+    <br/>
+    <code>someValue</code>: <input type="number" ng-model="someValue">
+    <br/>
+    <ul>
+      <li ng-repeat="condition in conditionNames">
+        <input type="checkbox" ng-model="conditions[condition]">Condition {{ condition }}
+      </li>
+    </ul>
+
+    <br/>
+    <br/>
+
+    <div ng-cases="someExpression">
+      <div ng-case="1">
+        <b>1</b>: This will render when <code>someExpression</code> evaluates to 1.
+      </div>
+  
+      <p>
+        Some random junk in the middle that will always render.
+      </p>
+  
+      <div ng-case="someValue + 2">
+        <b>{{ someValue }} + 2</b>: This will render when <code>someExpression</code> evaluates to <code>someValue + 2</code>.
+      </div>
+  
+      <div ng-case="3" ng-case-when="conditions.moreConditions || conditions.evenMoreConditions">
+        <b>3 with conditions</b>: This will render when <code>someExpression</code> evaluates to 3 and <code>conditions.moreConditions || conditions.evenMoreConditions</code>.
+      </div>
+  
+      <div ng-case="4 or 5">
+        <b>Multi-case 4,5</b>: This will render when <code>someExpression</code> evaluates to 4 or 5.
+      </div>
+  
+      <div ng-case ng-case-when="conditions.someCondition">
+        <b>Any value</b>: This will render for any value of <code>someExpression</code>, so long as <code>conditions.someCondition</code>.
+      </div>
+  
+      <div ng-case-default>
+        <b>Default</b>: This will render if none of the above cases match.
+      </div>
+      <p ng-case-default ng-case-when="conditions.anotherCondition">
+        <b>Default with conditions</b>: 
+        This will also render if none of the above cases match and <code>conditions.anotherCondition</code>.
+      </p>
+    </div>
+  
+    <p>
+      More nonsense that will always render.
+    </p>
+  </body>
+
+</html>

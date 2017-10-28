@@ -1,0 +1,21 @@
+{
+  "name": "ng-cases",
+  "version": "0.1.0",
+  "description": "Somewhat richer switch/case directives for AngularJS 1.x",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zachsnow/ng-cases.git"
+  },
+  "keywords": [
+    "ng-cases"
+  ],
+  "author": "Zach Snow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zachsnow/ng-cases/issues"
+  },
+  "homepage": "https://github.com/zachsnow/ng-cases"
+}

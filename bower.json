@@ -1,0 +1,24 @@
+{
+  "name": "ng-cases",
+  "version": "0.1.0",
+  "homepage": "https://github.com/zachsnow/ng-cases",
+  "authors": [
+    "Zach Snow <z@zachsnow.com>"
+  ],
+  "description": "Somewhat richer switch/case directives for AngularJS",
+  "dependencies": {
+    "angular": "^1.6.6"
+  },
+  "main": "src/cases.js",
+  "keywords": [
+    "ng-cases",
+    "cases"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "*.md",
+    "*.html",
+    "LICENSE"
+  ]
+}
